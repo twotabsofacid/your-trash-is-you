@@ -1,0 +1,17 @@
+{
+  "name": "your-trash-is-you",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^2.1.5",
+    "fs-jetpack": "^2.2.2",
+    "sharp": "^0.22.0"
+  }
+}
