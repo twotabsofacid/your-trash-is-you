@@ -8,9 +8,12 @@ A quantified self application that looks through your trash and generates more t
 
 This is an application that watches the trashcan on your computer and saves all the screenshots you throw away, in order for you to do something with them later. It also resizes all the images to 1200x1200, so that they can be more easily manipulated.
 
+This is currently for OSX only.
+
 ### Todos
 
-Implement either machine learning to generate new screenshots, or use compositing or some other method to create new content. Then drop this content on a persons desktop.
+* Implement either machine learning to generate new screenshots, or use compositing or some other method to create new content. Then drop this content on a persons desktop.
+* Make compatible with linux and windows machines.
 
 ### Installation
 

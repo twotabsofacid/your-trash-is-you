@@ -1,7 +1,11 @@
 'use strict';
 
 // Requires
-const CONFIG = require('./config.json');
+const OS = require('os');
+const CONFIG = {
+	"trash": `${OS.homedir()}/.Trash`,
+	"saved_trash": `${OS.homedir()}/Documents/.saved_trash`
+}
 const jetpack = require('fs-jetpack');
 const chokidar = require('chokidar');
 const sharp = require('sharp');
