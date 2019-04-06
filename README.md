@@ -12,6 +12,10 @@ This is currently for OSX only.
 
 ### Todos
 
+* Look into Dithering images to save space
+* Publish images online
+* Properly slugify file names
+* Create the folder `.saved_trash` if it doesn't exit
 * Implement either machine learning to generate new screenshots, or use compositing or some other method to create new content. Then drop this content on a persons desktop.
 * Make compatible with linux and windows machines.
 
