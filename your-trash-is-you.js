@@ -13,13 +13,21 @@ const sharp = require('sharp');
 
 class YourTrashIsYou {
 	constructor() {
+		// Create the CONFIG for Linux, or Windows
+		let type = OS.type();
+		if (type == 'Linux') {
+			// Set to /home/$USER/.local/share/Trash
+			CONFIG.trash = `${OS.homedir()}/.local/share/Trash`;
+			CONFIG.saved_trash = `${OS.homedir()}/.saved_trash`;
+		} else if (type == 'Windows_NT') {
+			// probably return false?? for now??
+			return false;
+		}
+		// Create the saved trash folder, if it doesn't exist
 		if (!fs.existsSync(CONFIG.saved_trash)){
 			fs.mkdirSync(CONFIG.saved_trash);
 		}
-	}
-	start() {
-		// make sure we have a directory to save this stuff to
-		jetpack.dir(CONFIG.saved_trash);
+		this.watch();
 	}
 	watch() {
 		let watcher = chokidar.watch(CONFIG.trash);
@@ -65,4 +73,4 @@ class YourTrashIsYou {
 }
 
 const yourTrash = new YourTrashIsYou();
-yourTrash.watch();
+// yourTrash.watch();
