@@ -6,11 +6,17 @@ const CONFIG = {
 	"trash": `${OS.homedir()}/.Trash`,
 	"saved_trash": `${OS.homedir()}/Documents/.saved_trash`
 }
+const fs = require('fs');
 const jetpack = require('fs-jetpack');
 const chokidar = require('chokidar');
 const sharp = require('sharp');
 
 class YourTrashIsYou {
+	constructor() {
+		if (!fs.existsSync(CONFIG.saved_trash)){
+			fs.mkdirSync(CONFIG.saved_trash);
+		}
+	}
 	start() {
 		// make sure we have a directory to save this stuff to
 		jetpack.dir(CONFIG.saved_trash);
@@ -23,7 +29,7 @@ class YourTrashIsYou {
 	}
 	/**
 	 * runSaveNames
-	 * 
+	 *
 	 * save all trashed file names into a JSON file,
 	 * keeping the name, file size, and date added to trash
 	 */
@@ -39,13 +45,13 @@ class YourTrashIsYou {
 				size: fileInfo.size
 			};
 			// If we have a file, and if it's a screenshot
-			if (trashObj.type == 'file' && trashObj.name.indexOf('Screen Shot') !== -1) {
+			if (trashObj.type == 'file' && trashObj.name.indexOf('Screen Shot') !== -1 && trashObj.name.indexOf('.png') !== -1) {
 				// Copy the file here
 				console.log(trashObj.path);
 				// Use sharp to change the image
 				sharp(`${trashObj.path}`)
 					.resize(1200, 1200)
-					.toFile(`${CONFIG.saved_trash}/${trashObj.name.split(' ').join('')}`, (err, info) => {
+					.toFile(`${CONFIG.saved_trash}/${trashObj.name.split(' ').join('').split('png')[0]}.jpg`, (err, info) => {
 						if (err) {
 							console.warn(err);
 						} else {
