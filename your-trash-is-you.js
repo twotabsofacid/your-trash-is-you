@@ -66,7 +66,6 @@ class YourTrashIsYou {
 							console.log(info);
 						}
 					});
-				//jetpack.copy(trashObj.path, `${CONFIG.saved_trash}/${trashObj.name}`, { overwrite: true });
 			}
 		}
 	}
