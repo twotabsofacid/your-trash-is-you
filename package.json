@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GNU GPLv3",
   "dependencies": {
     "chokidar": "^2.1.5",
     "fs-jetpack": "^2.2.2",
