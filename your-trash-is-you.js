@@ -72,4 +72,3 @@ class YourTrashIsYou {
 }
 
 const yourTrash = new YourTrashIsYou();
-// yourTrash.watch();
